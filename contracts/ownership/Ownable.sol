@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity 0.5.0;
 
 /**
  * @title Ownable
@@ -33,7 +33,7 @@ contract Ownable {
    * @dev Throws if called by any account other than the owner.
    */
   modifier onlyOwner() {
-    require(isOwner());
+    require(isOwner(), "Ownable#onlyOwner: Only owner can use this function");
     _;
   }
 
@@ -68,7 +68,7 @@ contract Ownable {
    * @param newOwner The address to transfer ownership to.
    */
   function _transferOwnership(address newOwner) internal {
-    require(newOwner != address(0));
+    require(newOwner != address(0), "Ownable#_transferOwnership: Cannot transfer ownership to address zero");
     emit OwnershipTransferred(_owner, newOwner);
     _owner = newOwner;
   }
