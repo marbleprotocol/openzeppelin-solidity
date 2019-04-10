@@ -121,7 +121,7 @@ contract ERC20 is IERC20 {
      * @param subtractedValue The amount of tokens to decrease the allowance by.
      */
     function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {
-        require(spender != address(0), "ERC20#decreaseAllowance: Cannot decrease allowance for address zero");
+        require(spender != address(0), "ERC20::decreaseAllowance: Cannot decrease allowance for address zero");
 
         _allowed[msg.sender][spender] = _allowed[msg.sender][spender].sub(subtractedValue);
         emit Approval(msg.sender, spender, _allowed[msg.sender][spender]);
@@ -135,7 +135,7 @@ contract ERC20 is IERC20 {
     * @param value The amount to be transferred.
     */
     function _transfer(address from, address to, uint256 value) internal {
-        require(to != address(0), "ERC20#_transfer: Cannot transfer to address zero");
+        require(to != address(0), "ERC20::_transfer: Cannot transfer to address zero");
 
         _balances[from] = _balances[from].sub(value);
         _balances[to] = _balances[to].add(value);
@@ -150,7 +150,7 @@ contract ERC20 is IERC20 {
      * @param value The amount that will be created.
      */
     function _mint(address account, uint256 value) internal {
-        require(account != address(0), "ERC20#_mint: Cannot mint to address zero");
+        require(account != address(0), "ERC20::_mint: Cannot mint to address zero");
 
         _totalSupply = _totalSupply.add(value);
         _balances[account] = _balances[account].add(value);
@@ -164,7 +164,7 @@ contract ERC20 is IERC20 {
      * @param value The amount that will be burnt.
      */
     function _burn(address account, uint256 value) internal {
-        require(account != address(0), "ERC20#_burn: Cannot burn from address zero");
+        require(account != address(0), "ERC20::_burn: Cannot burn from address zero");
 
         _totalSupply = _totalSupply.sub(value);
         _balances[account] = _balances[account].sub(value);
