@@ -70,7 +70,7 @@ contract ERC20 is IERC20 {
      * @param value The amount of tokens to be spent.
      */
     function approve(address spender, uint256 value) public returns (bool) {
-        require(spender != address(0), "ERC20#approve: Cannot approve address zero");
+        require(spender != address(0), "ERC20::approve: Cannot approve address zero");
 
         _allowed[msg.sender][spender] = value;
         emit Approval(msg.sender, spender, value);
@@ -103,7 +103,7 @@ contract ERC20 is IERC20 {
      * @param addedValue The amount of tokens to increase the allowance by.
      */
     function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {
-        require(spender != address(0), "ERC20#increaseAllowance: Cannot increase allowance for address zero");
+        require(spender != address(0), "ERC20::increaseAllowance: Cannot increase allowance for address zero");
 
         _allowed[msg.sender][spender] = _allowed[msg.sender][spender].add(addedValue);
         emit Approval(msg.sender, spender, _allowed[msg.sender][spender]);
