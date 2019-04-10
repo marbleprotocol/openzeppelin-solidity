@@ -33,7 +33,7 @@ contract Ownable {
    * @dev Throws if called by any account other than the owner.
    */
   modifier onlyOwner() {
-    require(isOwner(), "Ownable#onlyOwner: Only owner can use this function");
+    require(isOwner(), "Ownable::onlyOwner: Only owner can use this function");
     _;
   }
 
