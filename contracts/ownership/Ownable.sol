@@ -26,7 +26,6 @@ contract Ownable {
         return _owner;
     }
 
-<<<<<<< HEAD
   /**
    * @dev Throws if called by any account other than the owner.
    */
@@ -34,15 +33,6 @@ contract Ownable {
     require(isOwner(), "Ownable::onlyOwner: Only owner can use this function");
     _;
   }
-=======
-    /**
-    * @dev Throws if called by any account other than the owner.
-    */
-    modifier onlyOwner() {
-        require(isOwner(), "Ownable#onlyOwner: Only owner can use this function");
-        _;
-    }
->>>>>>> master
 
     /**
      * @return true if `msg.sender` is the owner of the contract.
